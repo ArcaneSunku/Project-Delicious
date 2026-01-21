@@ -1,0 +1,31 @@
+# Windows thumbnail cache
+Thumbs.db
+
+# Build output directories
+bin/
+bin-int/
+
+# Visual Studio artifact files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+.vs/
+
+# IDE and editor configs
+.vscode/
+.idea/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Logs and temp files
+*.log
+*.trace
+*.tmp
+
+# Miscellaneous
+.DS_Store
+.env
