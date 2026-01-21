@@ -12,7 +12,7 @@
 
 ## ✨ Overview
 
-**Campfire Legends** is an early-stage **Adventure RPG** that blends traditional fantasy exploration with a grounded, player-influenced economy. Inspired by the cozy-yet-adventurous tone of *Campfire Cooking in Another World with My Absurd Skill*, the game places equal importance on **combat**, **craft**, and **commerce**.
+**Project Delicious** is an early-stage **Adventure RPG** that blends traditional fantasy exploration with a grounded, player-influenced economy. Inspired by the cozy-yet-adventurous tone of *Campfire Cooking in Another World with My Absurd Skill*, the game places equal importance on **combat**, **craft**, and **commerce**.
 
 Players are not just heroes — they are **participants in a living world**.
 
