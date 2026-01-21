@@ -11,8 +11,9 @@ namespace gui
 	class GUI
 	{
 	public:
-		GUI() { m_ID = "ui_test"; }
+		GUI() : m_Removed(false), m_ChildCount(0) { m_ID = "ui_test"; }
 		GUI(const char* id) : m_ID(id), m_Removed(false), m_ChildCount(0) {}
+
 		virtual ~GUI() { Dispose(); }
 
 		virtual void Init() = 0;
