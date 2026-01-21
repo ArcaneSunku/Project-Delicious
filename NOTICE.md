@@ -30,7 +30,7 @@ The following are **NOT** covered by the MIT License and are **All Rights Reserv
 - Logos
 - Story, world, characters, lore
 - Dialogue and narrative text
-- Original artwork, sprites, models, animations
+- Original artwork, sprites, models, animations (sans "[programmer art](https://en.wikipedia.org/wiki/Programmer_art)")
 - Music and sound effects
 - Game-specific design content
 
