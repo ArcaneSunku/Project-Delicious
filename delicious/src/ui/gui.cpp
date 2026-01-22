@@ -2,7 +2,7 @@
 
 namespace gui
 {
-	void GUI::UpdateChildren()
+	void GUI::UpdateChildren(float dt)
 	{
 		for (auto it = m_Children.begin(); it != m_Children.end();)
 		{
@@ -13,31 +13,44 @@ namespace gui
 				continue;
 			}
 
-			child->OnUpdate();
+			child->OnUpdate(dt);
 			++it;
 		}
 	}
 
 	void GUI::RenderChildren()
 	{
-		for (auto& [id, child] : m_Children)
+		for (auto it = m_Children.begin(); it != m_Children.end();)
+		{
+			std::unique_ptr<GUI>& child = it->second;
+			if (child->m_Removed)
+			{
+				it = m_Children.erase(it);
+				continue;
+			}
+
 			child->OnRender();
+			++it;
+		}
 	}
 
 	void GUI::AddChild(std::unique_ptr<GUI> child)
 	{
-		m_Children.emplace(child->GetID(), child);
+		auto id = child->GetID();
+		auto& inserted = m_Children.emplace(id, std::move(child)).first->second;
 
-		child->OnAdd();
+		inserted->OnAdd();
 		m_ChildCount++;
 	}
 
-	void GUI::RemoveChild(const char* id)
+	void GUI::RemoveChild(std::string id)
 	{
-		std::unique_ptr<GUI>& child = m_Children.at(id);
-		m_Children.erase(child->GetID());
+		auto it = m_Children.find(id);
+		if (it == m_Children.end()) return;
 
-		child->OnRemove();
+		it->second->OnRemove();
+		m_Children.erase(it);
+
 		m_ChildCount--;
 	}
 }
