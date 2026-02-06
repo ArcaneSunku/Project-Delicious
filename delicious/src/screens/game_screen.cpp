@@ -1,29 +1,19 @@
 #include "screens.h"
 
-#include <ostream>
-
-#include "raygui.h"
-
-#ifndef TRANS_GRAY
-	#define TRANS_GRAY CLITERAL(Color){ 35, 35, 35, 175 } 
-#endif
+#include "ui/in_game/pause_menu.h"
 
 namespace screens
 {
 
 	Texture wabbit; // Very temporary - REMOVE WHEN DONE
 
-	bool paused, return_main_menu;
-
 	void GameScreen::Init()
 	{
 		wabbit = LoadTexture("textures/wabbit_alpha.png");
 
 
-		btn_width = 120.0f;
-		btn_height = 30.0f;
-
-		paused = return_main_menu = false;
+		m_PauseMenu = std::make_unique<gui::PauseMenu>();
+		m_PauseMenu->Init();
 	}
 
 	void GameScreen::Dispose()
@@ -34,9 +24,9 @@ namespace screens
 	void GameScreen::Update(float dt)
 	{
 		if (IsKeyPressed(KEY_ESCAPE))
-			paused = !paused;
+			m_PauseMenu->OnUpdate(dt);
 
-		if(return_main_menu)
+		if(((gui::PauseMenu*)m_PauseMenu.get())->ReturnToMain())
 			screen_manager->SetScreen(new MainScreen());
 	}
 
@@ -44,13 +34,8 @@ namespace screens
 	{
 		DrawRectangle((GetScreenWidth() - wabbit.width) / 2, (GetScreenHeight() - wabbit.height) / 2, wabbit.width, wabbit.height, GOLD);
 
-		if (paused)
-		{
-			DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), TRANS_GRAY);
-
-			paused = !GuiButton({ (GetScreenWidth() - btn_width) / 2.0f, (GetScreenHeight() - btn_width) / 2.0f, btn_width, btn_height }, "Resume");
-			return_main_menu = GuiButton({ (GetScreenWidth() - btn_width) / 2.0f, (GetScreenHeight() - btn_width) / 2.0f + btn_height + (btn_height / 2.0f), btn_width, btn_height }, "Main Menu");
-		}
+		if(((gui::PauseMenu*)m_PauseMenu.get())->IsPaused())
+			m_PauseMenu->OnRender();
 	}
 
 }

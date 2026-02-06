@@ -1,6 +1,6 @@
 #include "screens.h"
 
-#include "../ui/main_menu.h"
+#include "ui/main/main_menu.h"
 
 namespace screens
 {

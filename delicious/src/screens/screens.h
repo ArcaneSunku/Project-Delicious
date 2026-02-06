@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "raylib.h"
-#include "../ui/gui.h"
+#include "ui/gui.h"
 
 namespace screens
 {
@@ -47,7 +47,7 @@ namespace screens
         void Render() override;
 
     private:
-        float btn_width, btn_height;
+        std::unique_ptr<gui::GUI> m_PauseMenu;
     };
 
     class MainScreen : public Screen

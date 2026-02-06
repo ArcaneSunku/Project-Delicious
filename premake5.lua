@@ -27,6 +27,7 @@ project "delicious"
 	}
 	
 	includedirs {
+		"%{prj.name}/src",
 		"delicious/vendors/raylib/include",
 		"delicious/vendors/raygui/src"
 	}

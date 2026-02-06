@@ -1,6 +1,6 @@
 #pragma once
 
-#include "gui.h"
+#include "ui/gui.h"
 
 namespace gui
 {
@@ -16,9 +16,6 @@ namespace gui
 
 		virtual void OnUpdate(float dt) override;
 		virtual void OnRender() override;
-
-		virtual void OnAdd() override;
-		virtual void OnRemove() override;
 
 		inline bool PressedPlay() { return m_Play; }
 		inline bool PressedExit() { return m_Exit; }

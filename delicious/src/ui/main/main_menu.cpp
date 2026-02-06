@@ -31,13 +31,4 @@ namespace gui
 		DrawText(m_Title, (int)((GetScreenWidth() - m_TitleWidth) / 2.0f), (int)(GetScreenHeight() / 2.5f), m_TitleSize, WHITE);
 	}
 
-	void MainMenu::OnAdd()   
-	{
-		
-	}
-
-	void MainMenu::OnRemove()
-	{
-		
-	}
 }
