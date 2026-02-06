@@ -14,7 +14,7 @@ namespace gui
 
 	void PauseMenu::Dispose()
 	{
-
+		m_Paused = m_MainMenu = false;
 	}
 
 	void PauseMenu::OnUpdate(float dt)

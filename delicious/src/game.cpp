@@ -17,13 +17,16 @@ void Game::Start()
 void Game::Init()
 {
 	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
-	SetTargetFPS(60);
+	SetTargetFPS(120);
 
 	InitWindow(m_width, m_height, m_title.c_str());
-	SearchAndSetResourceDir("assets");
-	SetExitKey(KEY_NULL);
-
 	InitAudioDevice();
+
+	// Asset Stuffs
+	SearchAndSetResourceDir("assets");
+	GuiLoadStyle("ui/dark/style_dark.txt.rgs");
+
+	SetExitKey(KEY_NULL);
 
 	screen_manager->SetScreen(new screens::MainScreen());
 }

@@ -11,7 +11,6 @@ namespace screens
 	{
 		wabbit = LoadTexture("textures/wabbit_alpha.png");
 
-
 		m_PauseMenu = std::make_unique<gui::PauseMenu>();
 		m_PauseMenu->Init();
 	}
@@ -19,6 +18,7 @@ namespace screens
 	void GameScreen::Dispose()
 	{
 		UnloadTexture(wabbit);
+		m_PauseMenu->Dispose();
 	}
 
 	void GameScreen::Update(float dt)

@@ -7,8 +7,6 @@ namespace screens
 
 	void MainScreen::Init()
 	{
-		GuiLoadStyle("ui/dark/style_dark.txt.rgs");
-
 		m_MainMenu = std::make_unique<gui::MainMenu>();
 		m_MainMenu->Init();
 	}
