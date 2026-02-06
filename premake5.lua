@@ -46,6 +46,9 @@ project "delicious"
 		defines {
 			"_CRT_SECURE_NO_WARNINGS"
 		}
+
+	filter "system:linux"
+		systemversion "latest"
 		
 	filter "configurations:Debug"
 		runtime "Debug"
