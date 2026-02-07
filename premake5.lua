@@ -35,16 +35,27 @@ project "delicious"
 	links {
 		"delicious/vendors/raylib/lib/raylibdll.lib"
 	}
-
-	--postbuildcommands {
-	--  "{COPYDIR} \"../%{prj.name}/assets\" %[%{!cfg.targetdir}/assets]"
-	--}
 	
 	filter "system:windows"
 		systemversion "latest"
 		
 		defines {
 			"_CRT_SECURE_NO_WARNINGS"
+		}
+
+		buildoutputs {
+			"%{cfg.targetdir}/raylib.dll",
+			"%{cfg.targetdir}/assets"
+		}
+
+		prebuildcommands {
+			'if exist "%{cfg.targetdir}\\raylib.dll" del /Q "%{cfg.targetdir}\\raylib.dll"',
+			'if exist "%{cfg.targetdir}\\assets" rmdir /S /Q "%{cfg.targetdir}\\assets"'
+		}
+
+		postbuildcommands {
+			"{COPYFILE} %{wks.location}/delicious/vendors/raylib/lib/raylib.dll %{cfg.targetdir}",
+			"{COPYDIR} %{wks.location}/delicious/assets %{cfg.targetdir}/assets"
 		}
 
 	filter "system:linux"
