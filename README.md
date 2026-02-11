@@ -72,6 +72,7 @@ The project is intentionally lightweight and low-level to maintain control and p
 
 - **Language:** C++
 - **Rendering / Windowing:** [Raylib](https://www.raylib.com/)
+- **Entity Component System:** [entt](https://github.com/skypjack/entt)
 - **Build System:** Premake
 
 The goal is a clean, understandable codebase that favors **clarity and iteration** over premature abstraction.
