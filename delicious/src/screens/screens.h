@@ -48,6 +48,7 @@ namespace screens
 
     private:
         std::unique_ptr<gui::GUI> m_PauseMenu;
+        Camera2D m_Camera;
     };
 
     class MainScreen : public Screen
